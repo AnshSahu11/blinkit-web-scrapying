@@ -196,7 +196,6 @@ class BlinkitScraper:
 
             # Extract Prices
             selling_price = ''
-            # mrp = ''
             currency = 'INR'
             try:
                 price_elements = selector.xpath(
@@ -217,8 +216,7 @@ class BlinkitScraper:
 
                 if numeric_prices:
                     selling_price = numeric_prices[0]
-                    # if len(numeric_prices) > 1:
-                    #     mrp = str(int(max(numeric_prices)))
+
 
             except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -226,7 +224,7 @@ class BlinkitScraper:
                 print(exc_type, fname, exc_tb.tb_lineno)
                 print(f"Error in price extraction: {e}")
                 selling_price = ''
-                # mrp = ''
+
 
             # Extract Category
             category = ''
@@ -332,7 +330,6 @@ class BlinkitScraper:
                     'Title': pro_name,
                     'Brand': brand,
                     'Selling Price': selling_price,
-                    # 'MRP': mrp,
                     'Currency': currency,
                     'Category': category,
                     'Weight/Size': weight_size,
